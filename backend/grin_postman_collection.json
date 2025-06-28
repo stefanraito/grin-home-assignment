@@ -1,0 +1,162 @@
+{
+  "info": {
+    "name": "Grin Backend API",
+    "description": "Postman collection for the Grin home\u2011assignment backend.\n\n `base_url` defaults to http://localhost:3001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3001"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Stats (all time)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/stats",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "stats"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Stats (date range)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/stats?from=2025-06-01&to=2025-06-30",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "stats"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "2025-06-01"
+            },
+            {
+              "key": "to",
+              "value": "2025-06-30"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Patients (default page)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/patients",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patients"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Patients (page & limit)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/patients?page=2&limit=10",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patients"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "2"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Patients (date filtered)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/patients?from=2025-05-01&to=2025-05-31",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patients"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "2025-05-01"
+            },
+            {
+              "key": "to",
+              "value": "2025-05-31"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Satisfaction summary",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/satisfaction",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "satisfaction"
+          ]
+        }
+      }
+    }
+  ]
+}
