@@ -16,9 +16,19 @@ export const fetchSatisfaction = async (
   from?: string,
   to?: string,
 ): Promise<SatisfactionResponse> => {
-  const params: Record<string, string> = {};
-  if (from) params.from = from;
-  if (to) params.to = to;
-  const { data } = await http.get<SatisfactionResponse>('/satisfaction', { params });
-  return data;
+  try {
+    const params: Record<string, string> = {};
+    if (from) {
+      params.from = from;
+    }
+    if (to) {
+      params.to = to;
+    }
+
+    const { data } = await http.get<SatisfactionResponse>('/satisfaction', { params });
+    return data;
+  } catch (err) {
+    console.error('API fetchSatisfaction error:', err);
+    throw err;
+  }
 };

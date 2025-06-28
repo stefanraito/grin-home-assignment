@@ -7,9 +7,19 @@ export const fetchPatients = async (
   from?: string,
   to?: string,
 ): Promise<PaginatedPatients> => {
-  const params: Record<string, string | number> = { page, limit };
-  if (from) params.from = from;
-  if (to) params.to = to;
-  const { data } = await http.get<PaginatedPatients>('/patients', { params });
-  return data;
+  try {
+    const params: Record<string, string | number> = { page, limit };
+    if (from) {
+      params.from = from;
+    }
+    if (to) {
+      params.to = to;
+    }
+
+    const { data } = await http.get<PaginatedPatients>('/patients', { params });
+    return data;
+  } catch (err) {
+    console.error('API fetchPatients error:', err);
+    throw err;
+  }
 };
